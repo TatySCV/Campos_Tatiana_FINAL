@@ -16,7 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Final_APP import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index),
+    path('participantes/', views.listadoParticipante),
+    path('agregarParticipantes/', views.agregarParticipante),
+    path('agregarInstitucion/', views.agregarInstitucion),
+    path('eliminar/<int:IN_id>', views.eliminarParticipante),
+    path('modificar/<int:IN_id>', views.modificarParticipante),
+    path('autor/', views.autorView.as_view()),
+    path('participante_api/', views.participantes_list.as_view()),
+    path('participanteid_api/<int:id>', views.participantes_id.as_view()),
+    path('institucion_api/', views.instituciones_list),
+    path('institucionid_api/<int:id>', views.instituciones_id),
+
 ]
